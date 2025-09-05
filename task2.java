@@ -2,7 +2,7 @@ import java.util.Scanner;
 import java.util.ArrayList;
 //TASK 2 : ADDING STUDENTS TO AN ARRAY
 //student class
-class Student{
+class Student{ //task1
     private int roll_num;
     private String name;
     private String course;
@@ -46,7 +46,7 @@ class Student{
 }
 
 //main class
-public class task2 {
+public class task2 { //task3
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in) ;
         ArrayList<Student> students = new ArrayList<>();
@@ -55,7 +55,7 @@ public class task2 {
         int n = sc.nextInt();
         sc.nextLine();//newline
 
-        for(int i= 0 ; i<n ; i++){
+        for(int i= 0 ; i<n ; i++){ //task2 with loop
             System.out.println("Enter the details ; "+ (i+1) + ":");
 
             System.out.println("Roll Number : ");
@@ -89,3 +89,4 @@ public class task2 {
 
     }
 }
+
