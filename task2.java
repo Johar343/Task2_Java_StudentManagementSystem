@@ -1,25 +1,23 @@
 import java.util.Scanner;
-import java.util.ArrayList;
-//TASK 2 : ADDING STUDENTS TO AN ARRAY
+
 //student class
-class Student{ //task1
+class Student { //task1
     private int roll_num;
     private String name;
     private String course;
     private int marks;
     private String grade;
 
-    //constructor
+    //using constructor 
     public Student(int roll_num, String name, String course, int marks , String grade){
         this.roll_num = roll_num;
         this.name = name;
         this.course = course;
         this.marks = marks;
-        this.grade = "Not calculated yet" ;//default
+        this.grade = "Not calculated yet" ;//yet to be claculated
     }
 
     //to calculate the grade 
-
     public void calculate_grade(){
         if(marks>=90){
             grade = "A";
@@ -46,16 +44,19 @@ class Student{ //task1
 }
 
 //main class
-public class task2 { //task3
+public class task2 { //task3 and task2 combined
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in) ;
-        ArrayList<Student> students = new ArrayList<>();
+        Scanner sc = new Scanner(System.in);
 
+        System.out.println("------STUDENT DATABASE MANAGEMENT SYSTEM------");
         System.out.println("Enter the number of students : ");
         int n = sc.nextInt();
-        sc.nextLine();//newline
+        sc.nextLine(); //newline
 
-        for(int i= 0 ; i<n ; i++){ //task2 with loop
+        // Creating an array for students
+        Student[] students = new Student[n];
+
+        for(int i = 0; i < n; i++){
             System.out.println("Enter the details ; "+ (i+1) + ":");
 
             System.out.println("Roll Number : ");
@@ -68,25 +69,21 @@ public class task2 { //task3
             System.out.println("Course : ");
             String course = sc.nextLine();
 
-
             System.out.println("Marks : ");
             int marks = sc.nextInt();
             sc.nextLine();
 
-            Student student = new Student(roll, name, course, marks, "not calculated yet");
-            student.calculate_grade();
-            students.add(student); // <-- Add this line
+            students[i] = new Student(roll, name, course, marks, "not calculated yet");
+            students[i].calculate_grade();
             System.out.println();
         }
 
         //display the details
         System.out.println("\n------Student Records-------\n");
-        for (Student s : students){
-            s.student_details();
+        for(int i = 0; i < n; i++){
+            students[i].student_details();
         }
 
         sc.close();
-
     }
 }
-
